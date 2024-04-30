@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new Race</title>
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Create new Race</h1>
+    <form action="/races/create" method="post" th:object="${race}">
+        <label for="name">Race Name:</label><br>
+        <input type="text" id="name" name="raceName" th:field="*{raceName}"><br>
+
+        <label for="length">Race length (km):</label><br>
+        <input type="number" min = "0.0" step="0.1" id="length" name="raceLength" th:field="*{raceLength}"><br>
+
+        <button type="submit">Create Race</button>
+    </form>
+</div>
+</body>
+</html>
