@@ -13,4 +13,5 @@ public class RunnerService {
     public List<RunnerEntity> getAllRunners(){return runnerRepository.findAll();}
 
     public RunnerEntity addRunner(RunnerEntity runnerEntity) {return runnerRepository.save(runnerEntity);}
+
 }

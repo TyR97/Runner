@@ -22,4 +22,16 @@ public class RaceService {
     public List<ResultEntity> getResultsByRaceId(Long raceId){
         return resultRepository.findResultEntitiesByRaceEntityRaceId(raceId);
     }
+
+    public RaceEntity updateRace(Long id, RaceEntity updatedRaceEntity){
+        RaceEntity raceEntity = raceRepository.findById(id).orElse(null);
+
+        if(raceEntity != null){
+            raceEntity.setRaceName(updatedRaceEntity.getRaceName());
+            raceEntity.setRaceLength(updatedRaceEntity.getRaceLength());
+            return raceRepository.save(raceEntity);
+        } else{
+            return null;
+        }
+    }
 }
