@@ -9,8 +9,10 @@ import java.util.List;
 public class RaceService {
     @Autowired
     private RaceRepository raceRepository;
+
     @Autowired
     private ResultRepository resultRepository;
+
 
     public RaceEntity addRace(RaceEntity raceEntity){return raceRepository.save(raceEntity);}
 
@@ -34,4 +36,6 @@ public class RaceService {
             return null;
         }
     }
+
+
 }
