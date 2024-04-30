@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -35,6 +36,20 @@ public class RaceController {
     public String createRace(@ModelAttribute("races") RaceEntity raceEntity){
         raceService.addRace(raceEntity);
         return "redirect:/races";
+    }
+
+    @GetMapping("race/{id}")
+    public String getRaceById(@PathVariable Long id, Model model){
+        RaceEntity raceEntity = raceRepository.findById(id).orElse(null);
+        List<ResultEntity> resultEntities = raceService.getResultsByRaceId(id);
+
+        if(raceEntity != null){
+            model.addAttribute("race", raceEntity);
+            model.addAttribute("results", resultEntities);
+            return "race";
+        } else{
+            return "error";
+        }
     }
 
 }
