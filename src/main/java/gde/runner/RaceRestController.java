@@ -19,4 +19,10 @@ public class RaceRestController {
             return null;
         }
     }
+
+    @GetMapping("/getAverageTime/{id}")
+    public double getAverageTime(@PathVariable Long id){
+        double averageTime = raceService.getAverageTime(id);
+        return averageTime;
+    }
 }

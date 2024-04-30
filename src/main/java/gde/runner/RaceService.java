@@ -37,5 +37,19 @@ public class RaceService {
         }
     }
 
+    public double getAverageTime(Long raceId){
+        List<ResultEntity> resultEntities = resultRepository.findResultEntitiesByRaceEntityRaceId(raceId);
+
+        if(resultEntities.isEmpty()){
+            return 0.0;
+        } else{
+            int total = 0;
+            for(ResultEntity result: resultEntities){
+                total += result.getResultTime();
+            }
+            return (double) total/resultEntities.size();
+        }
+
+    }
 
 }
