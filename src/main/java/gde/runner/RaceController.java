@@ -48,7 +48,8 @@ public class RaceController {
             model.addAttribute("results", resultEntities);
             return "race";
         } else{
-            return "error";
+            model.addAttribute("raceId", id);
+            return "raceNotFound";
         }
     }
 

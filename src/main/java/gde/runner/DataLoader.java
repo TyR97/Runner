@@ -25,7 +25,7 @@ public class DataLoader implements CommandLineRunner{
         RunnerEntity runner4 = new RunnerEntity("Deena Kastor ",51,"Female");
 
         RaceEntity race1 = new RaceEntity("Why are you running?", 42.195);
-        RaceEntity race2 = new RaceEntity("Running from the police", 90.0);
+        RaceEntity race2 = new RaceEntity("Age Of Da Feet", 90.0);
 
         ResultEntity result1 = new ResultEntity(300.0, runner1, race1);
         ResultEntity result2 = new ResultEntity(90.0, runner2, race1);

@@ -19,11 +19,7 @@ public class RaceService {
     }
 
     public void addRace(RaceEntity raceEntity){raceRepository.save(raceEntity);}
-/*
-    public RaceEntity getRaceById(Long id){
-        RaceEntity raceEntity = raceRepository.findById(id).orElse(null);
-        return raceEntity;
-    }*/
+
 
     public List<ResultEntity> getResultsByRaceId(Long raceId){
         return resultRepository.findResultEntitiesByRaceEntityRaceId(raceId);
