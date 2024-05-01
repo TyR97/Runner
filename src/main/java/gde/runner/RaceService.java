@@ -14,12 +14,16 @@ public class RaceService {
     private ResultRepository resultRepository;
 
 
-    public RaceEntity addRace(RaceEntity raceEntity){return raceRepository.save(raceEntity);}
+    public List<ResultEntity> getRaceRunners(Long raceId){
+        return resultRepository.findResultEntitiesByRaceEntityRaceIdOrderByResultTime(raceId);
+    }
 
+    public void addRace(RaceEntity raceEntity){raceRepository.save(raceEntity);}
+/*
     public RaceEntity getRaceById(Long id){
         RaceEntity raceEntity = raceRepository.findById(id).orElse(null);
         return raceEntity;
-    }
+    }*/
 
     public List<ResultEntity> getResultsByRaceId(Long raceId){
         return resultRepository.findResultEntitiesByRaceEntityRaceId(raceId);
@@ -41,13 +45,13 @@ public class RaceService {
         List<ResultEntity> resultEntities = resultRepository.findResultEntitiesByRaceEntityRaceId(raceId);
 
         if(resultEntities.isEmpty()){
-            return 0.0;
+            return -1.0;
         } else{
-            int total = 0;
+            double totalTime = 0.0;
             for(ResultEntity result: resultEntities){
-                total += result.getResultTime();
+                totalTime += result.getResultTime();
             }
-            return (double) total/resultEntities.size();
+            return totalTime/resultEntities.size();
         }
 
     }

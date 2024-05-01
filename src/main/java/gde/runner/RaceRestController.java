@@ -2,6 +2,7 @@ package gde.runner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/races")
@@ -18,6 +19,11 @@ public class RaceRestController {
         } else{
             return null;
         }
+    }
+
+    @GetMapping("{id}/runners")
+    public List<ResultEntity> getRaceRunners(@PathVariable Long id){
+        return raceService.getRaceRunners(id);
     }
 
     @GetMapping("/getAverageTime/{id}")

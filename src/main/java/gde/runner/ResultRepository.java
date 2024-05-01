@@ -6,4 +6,5 @@ import java.util.List;
 public interface ResultRepository extends JpaRepository<ResultEntity, Long> {
 
     List<ResultEntity> findResultEntitiesByRaceEntityRaceId(Long raceId);
+    List<ResultEntity> findResultEntitiesByRaceEntityRaceIdOrderByResultTime(Long raceId);
 }
