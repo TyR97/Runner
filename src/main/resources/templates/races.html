@@ -20,14 +20,13 @@
             <td th:text="${race.raceId}"></td>
             <td th:text="${race.raceName}"</td>
             <td>
-                <a th:href="@{/race/{id}(id=${race.raceId})}">View</a>
+                <a th:href="@{/race/{id}(id=${race.raceId})}" class="btn btn-primary">View</a>
             </td>
         </tr>
         </tbody>
     </table>
-    <a th:href="@{/races/create}">
-        <button>Add Race</button>
-    </a>
+    <a href="/" class="btn btn-primary">Go Back</a>
+    <a th:href="@{/races/create}" class="btn btn-primary">Add Race</a>
 </div>
 </body>
 </html>
